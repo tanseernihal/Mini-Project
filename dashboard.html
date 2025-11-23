@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Student's Final Timetable</h1>
+    <!-- Year Selection Dropdown -->
+    <label for="yearSelect">Select Year:</label>
+    <select id="yearSelect">
+      <option value="">-- Select Year --</option>
+      <option value="1st Year">1st Year</option>
+      <option value="2nd Year">2nd Year</option>
+      <option value="3rd Year">3rd Year</option>
+    </select>
+    <!-- Section Selection Dropdown (Initially Hidden) -->
+    <label for="sectionSelect" style="display: none;">Select Section:</label>
+    <select id="sectionSelect" style="display: none;">
+      <option value="">-- Select Section --</option>
+      <option value="A">A Sec</option>
+      <option value="B">B Sec</option>
+    </select>
+    <table id="timetable">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Subject 1</th>
+          <th>Subject 2</th>
+          <th>Subject 3</th>
+          <th>Subject 4</th>
+          <th>Subject 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Timetable will be populated dynamically -->
+      </tbody>
+    </table>
+    <button id="downloadPdf" class="download-btn">Download as
+      PDF</button>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const yearSelect = document.getElementById("yearSelect");
+      const sectionSelect = document.getElementById("sectionSelect");
+      const timetableBody = document.querySelector("#timetable tbody");
+      // Show Section dropdown when Year is selected 
+      yearSelect.addEventListener("change", function () {
+        if (yearSelect.value) {
+          sectionSelect.style.display = "inline-block";
+          document.querySelector('label[for="sectionSelect"]').style.display =
+            "inline-block";
+        } else {
+          sectionSelect.style.display = "none";
+          document.querySelector('label[for="sectionSelect"]').style.display = "none";
+        }
+        timetableBody.innerHTML = ""; // Clear timetable on year change 
+      });
+      // Load timetable when Section is selected 
+      sectionSelect.addEventListener("change", function () {
+        timetableBody.innerHTML = ""; // Clear existing timetable
+        const savedTimetable = JSON.parse(localStorage.getItem("timetableData")) || [];
+        savedTimetable.forEach(entry => {
+          const row = timetableBody.insertRow();
+          const cellDay = row.insertCell(0);
+          cellDay.textContent = entry.day;
+          entry.subjects.forEach(subject => {
+            const cell = row.insertCell();
+            cell.textContent = subject;
+          });
+        });
+      });
+      document.getElementById("downloadPdf").addEventListener("click",
+        function () {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+          doc.text(`Student's Final Timetable (${yearSelect.value} - ${sectionSelect.value})`, 20, 10);
+          let rows = [];
+          document.querySelectorAll("#timetable tbody tr").forEach(tr => {
+            let row = [];
+            tr.querySelectorAll("td").forEach(td => row.push(td.textContent));
+            rows.push(row);
+          });
+          doc.autoTable({
+            head: [["Day", "Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"]],
+            body: rows,
+            startY: 20
+          });
+          doc.save(`Timetable_${yearSelect.value}_${sectionSelect.value}.pdf`);
+        });
+    }); 
+  </script>
+</body>
+
+</html>

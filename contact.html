@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">College Name</div>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="timetable.html">Timetable</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p>If you have any questions, feel free to reach out to us.</p>
+
+            <div class="contact-info">
+                <p><strong>Email:</strong> support@college.edu</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Address:</strong> 123 College Road, Chennai, India</p>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm">
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Google Maps Embed (Optional) -->
+    <section class="map-container">
+        <h2>Find Us on Google Maps</h2>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.541246153889!2d80.22743851530262!3d13.04168029081283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266b103ffb0d7%3A0xd15106cbe1d6f6d6!2sThe%20New%20College%2C%20Chennai!5e0!3m2!1sen!2sin!4v1642583787625"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 College Timetable Generator | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* Help Section */
+.help {
+    padding: 50px;
+    text-align: center;
+    background-color: white;
+}
+
+.help-container {
+    max-width: 800px;
+    margin: auto;
+    background: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.help h1 {
+    font-size: 2rem;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.help ol {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+    font-size: 1rem;
+}
+
+.help a {
+    color: #f0a500;
+    text-decoration: none;
+}
+
+.help a:hover {
+    text-decoration: underline;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    background-color: #f0a500;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #cc8400;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Signup</title>
+  <link rel="stylesheet" href="login.css"> <!-- Reuse existing styles -->
+  <style>
+    body {
+      background-image: url('Student login.jpg');
+      /* Replace with your image path 
+*/
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.8);
+      /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h1>Student Signup</h1>
+    <form id="signupForm">
+      <div class="input-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="login-btn">Sign Up</button>
+      <p id="error-message" class="error-message"></p>
+      <p>Already have an account? <a href="student-login.html">Login
+          here</a></p>
+    </form>
+  </div>
+  <script src="student-signup.js"></script>
+</body>
+
+</html>

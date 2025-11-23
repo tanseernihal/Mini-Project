@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Timetable Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>College Timetable Generator</h1>
+    <div class="form-container">
+      <h2>Enter Your Classes</h2>
+      <form id="timetableForm">
+        <!-- Year Selection -->
+        <div class="input-group">
+          <label for="year">Select Year:</label>
+          <select id="year" name="year" required>
+            <option value="">-- Select Year --</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+          </select>
+        </div>
+        <!-- Section Selection -->
+        <div class="input-group">
+          <label for="section">Select Section:</label>
+          <select id="section" name="section" required>
+            <option value="">-- Select Section --</option>
+            <option value="A">A Sec</option>
+            <option value="B">B Sec</option>
+          </select>
+        </div>
+        <!-- Day Selection -->
+        <div class="input-group">
+          <label for="day">Day Order:</label>
+          <select id="day" name="day" required>
+            <option value="1">I</option>
+            <option value="2">II</option>
+            <option value="3">III</option>
+            <option value="4">IV</option>
+            <option value="5">V</option>
+            <option value="6">VI</option>
+          </select>
+        </div>
+        <!-- Subject Inputs -->
+        <div class="input-group">
+          <label for="subject1">Subject 1:</label>
+          <input type="text" id="subject1" name="subject1" required>
+        </div>
+        <div class="input-group">
+          <label for="subject2">Subject 2:</label>
+          <input type="text" id="subject2" name="subject2" required>
+        </div>
+        <div class="input-group">
+          <label for="subject3">Subject 3:</label>
+          <input type="text" id="subject3" name="subject3" required>
+        </div>
+        <div class="input-group">
+          <label for="subject4">Subject 4:</label>
+          <input type="text" id="subject4" name="subject4" required>
+        </div>
+        <div class="input-group">
+          <label for="subject5">Subject 5:</label>
+          <input type="text" id="subject5" name="subject5" required>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Add Classes</button>
+      </form>
+    </div>
+    <div class="timetable-container">
+      <h2>Your Timetable</h2>
+      <!-- Filters -->
+      <div class="filters">
+        <label for="filterYear">Filter by Year:</label>
+        <select id="filterYear" name="filterYear">
+          <option value="">All Years</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+        </select>
+        <label for="filterSection">Filter by Section:</label>
+        <select id="filterSection" name="filterSection">
+          <option value="">All Sections</option>
+          <option value="A">A Sec</option>
+          <option value="B">B Sec</option>
+        </select>
+      </div>
+      <!-- Timetable -->
+      <table id="timetable">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Section</th>
+            <th>Day</th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            <th>Subject 3</th>
+            <th>Subject 4</th>
+            <th>Subject 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Timetable will be dynamically generated here -->
+        </tbody>
+      </table>
+      <!-- Buttons -->
+      <button id="clearTimetable" class="clear-btn">Clear Timetable</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
